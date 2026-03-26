@@ -1,0 +1,159 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
+#nullable enable
+
+namespace Serper
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public readonly partial struct PatentSearchRequest : global::System.IEquatable<PatentSearchRequest>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Serper.BaseSearchRequest? Base { get; init; }
+#else
+        public global::Serper.BaseSearchRequest? Base { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Base))]
+#endif
+        public bool IsBase => Base != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator PatentSearchRequest(global::Serper.BaseSearchRequest value) => new PatentSearchRequest((global::Serper.BaseSearchRequest?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Serper.BaseSearchRequest?(PatentSearchRequest @this) => @this.Base;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PatentSearchRequest(global::Serper.BaseSearchRequest? value)
+        {
+            Base = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object? Object =>
+            Base as object 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override string? ToString() =>
+            Base?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Validate()
+        {
+            return IsBase;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::Serper.BaseSearchRequest?, TResult>? @base = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsBase && @base != null)
+            {
+                return @base(Base!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::Serper.BaseSearchRequest?>? @base = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsBase)
+            {
+                @base?.Invoke(Base!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                Base,
+                typeof(global::Serper.BaseSearchRequest),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Equals(PatentSearchRequest other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::Serper.BaseSearchRequest?>.Default.Equals(Base, other.Base) 
+                ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator ==(PatentSearchRequest obj1, PatentSearchRequest obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<PatentSearchRequest>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator !=(PatentSearchRequest obj1, PatentSearchRequest obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is PatentSearchRequest o && Equals(o);
+        }
+    }
+}

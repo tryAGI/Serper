@@ -63,6 +63,9 @@ var options = new ChatOptions
 };
 ```
 
+!!! tip "Cross-SDK tool combination"
+    Serper search tools can be combined with [DeepL translation tools](https://tryagi.github.io/DeepL/guides/combined-tools/) in a single `ChatOptions.Tools` list for multilingual research workflows.
+
 ## Auth Note
 
 The Serper SDK includes a `PrepareRequest` auth hook that automatically converts the standard `Authorization: Bearer` header to Serper's native `X-API-KEY` header format. No additional configuration is needed.

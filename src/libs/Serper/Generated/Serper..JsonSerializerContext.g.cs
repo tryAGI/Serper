@@ -14,15 +14,25 @@ namespace Serper
         Converters = new global::System.Type[]
         {
             typeof(global::Serper.JsonConverters.SearchRequestVariant2TypeJsonConverter),
+
             typeof(global::Serper.JsonConverters.SearchRequestVariant2TypeNullableJsonConverter),
+
             typeof(global::Serper.JsonConverters.SearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.NewsSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.ImageSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.VideoSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.PlacesSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.ShoppingSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.ScholarSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.PatentSearchRequestJsonConverter),
+
             typeof(global::Serper.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Serper.JsonSerializerContextTypes))]

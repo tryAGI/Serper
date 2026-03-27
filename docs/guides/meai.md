@@ -3,7 +3,7 @@
 !!! tip "Cross-SDK comparison"
     See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
 
-The Serper SDK provides `AIFunction` tool wrappers from [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai), allowing you to use Google Search and Google News as tools with any `IChatClient`.
+The Serper SDK provides `AIFunction` tool wrappers compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai). These tools can be used with any `IChatClient` to give AI models Google search and news search capabilities.
 
 ## Installation
 
@@ -11,61 +11,64 @@ The Serper SDK provides `AIFunction` tool wrappers from [Microsoft.Extensions.AI
 dotnet add package Serper
 ```
 
-## Search Tool
+## Available Tools
 
-Use `AsSearchTool()` to create an `AIFunction` that searches Google:
+| Method | Tool Name | Description |
+|--------|-----------|-------------|
+| `AsSearchTool(numResults)` | `GoogleSearch` | Searches Google for current information on a query |
+| `AsNewsTool(numResults)` | `GoogleNewsSearch` | Searches Google News for recent news articles |
+
+## Usage
 
 ```csharp
 using Serper;
 using Microsoft.Extensions.AI;
 
-var serperClient = new SerperClient(apiKey: Environment.GetEnvironmentVariable("SERPER_API_KEY")!);
+var serper = new SerperClient(apiKey: Environment.GetEnvironmentVariable("SERPER_API_KEY")!);
 
-var searchTool = serperClient.AsSearchTool(numResults: 5);
-
-// Use with any IChatClient
-IChatClient chatClient = /* your chat client */;
-var options = new ChatOptions
-{
-    Tools = [searchTool],
-};
-
-var response = await chatClient.GetResponseAsync(
-    "What happened in tech news today?",
-    options);
-```
-
-## News Tool
-
-Use `AsNewsTool()` to search Google News for recent articles:
-
-```csharp
-var newsTool = serperClient.AsNewsTool(numResults: 5);
-
-var options = new ChatOptions
-{
-    Tools = [newsTool],
-};
-```
-
-## Combining Tools
-
-Both tools can be used together:
-
-```csharp
 var options = new ChatOptions
 {
     Tools =
     [
-        serperClient.AsSearchTool(numResults: 5),
-        serperClient.AsNewsTool(numResults: 5),
+        serper.AsSearchTool(numResults: 5),
+        serper.AsNewsTool(numResults: 5),
     ],
 };
+
+IChatClient chatClient = /* your chat client */;
+
+var messages = new List<ChatMessage>
+{
+    new(ChatRole.User, "What happened in tech news today?"),
+};
+
+while (true)
+{
+    var response = await chatClient.GetResponseAsync(messages, options);
+    messages.AddRange(response.ToChatMessages());
+
+    if (response.FinishReason == ChatFinishReason.ToolCalls)
+    {
+        var results = await response.CallToolsAsync(options);
+        messages.AddRange(results);
+        continue;
+    }
+
+    Console.WriteLine(response.Text);
+    break;
+}
 ```
 
-!!! tip "Cross-SDK tool combination"
-    Serper search tools can be combined with [DeepL translation tools](https://tryagi.github.io/DeepL/guides/combined-tools/) in a single `ChatOptions.Tools` list for multilingual research workflows.
+## Tool Details
 
-## Auth Note
+### AsSearchTool Parameters
 
-The Serper SDK includes a `PrepareRequest` auth hook that automatically converts the standard `Authorization: Bearer` header to Serper's native `X-API-KEY` header format. No additional configuration is needed.
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `numResults` | `int` | `5` | Maximum number of search results to return |
+
+### AsNewsTool Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `numResults` | `int` | `5` | Maximum number of news results to return |

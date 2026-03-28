@@ -6,7 +6,7 @@ namespace Serper
     public sealed partial class SerperClient
     {
         /// <inheritdoc/>
-        public void AuthorizeUsingBearer(
+        public void AuthorizeUsingApiKeyInHeader(
             string apiKey)
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
@@ -14,9 +14,9 @@ namespace Serper
             Authorizations.Clear();
             Authorizations.Add(new global::Serper.EndPointAuthorization
             {
-                Type = "Http",
+                Type = "ApiKey",
                 Location = "Header",
-                Name = "Bearer",
+                Name = "X-API-KEY",
                 Value = apiKey,
             });
         }

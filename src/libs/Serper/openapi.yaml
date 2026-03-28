@@ -654,10 +654,6 @@ components:
         credits:
           type: integer
           description: Number of API credits consumed by this request.
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
 paths:
   /search:
     post:
@@ -825,5 +821,3 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteResponse'
-security:
-  - BearerAuth: []

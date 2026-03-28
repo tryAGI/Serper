@@ -32,21 +32,4 @@ var client = new SerperClient(apiKey); // SERPER_API_KEY env var
 
 - **No public OpenAPI spec exists** — `openapi.yaml` was manually created from serper.dev API docs
 - All 9 endpoints are POST requests to `https://google.serper.dev`
-- Auth uses `X-API-KEY` header natively; `generate.sh` converts `apiKey` to `http/bearer`
-
-## Auth Hook
-
-The `PrepareRequest` hook in `Extensions/SerperClient.Auth.cs` converts Bearer to the native header:
-
-```csharp
-partial void PrepareRequest(HttpClient client, HttpRequestMessage request)
-{
-    if (request.Headers.Authorization is { Scheme: "Bearer", Parameter: { } apiKey })
-    {
-        request.Headers.Authorization = null;
-        request.Headers.TryAddWithoutValidation("X-API-KEY", apiKey);
-    }
-}
-```
-
-> **Alternative:** Could use `--security-scheme ApiKey:Header:X-API-KEY` CLI arg instead of the jq auth conversion + PrepareRequest hook.
+- Auth: `--security-scheme ApiKey:Header:X-API-KEY` sends the key directly as the native header (no spec conversion or PrepareRequest hook needed)

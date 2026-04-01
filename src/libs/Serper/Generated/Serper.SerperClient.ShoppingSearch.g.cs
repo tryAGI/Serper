@@ -217,7 +217,6 @@ namespace Serper
             bool? autocorrect = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Serper.ShoppingSearchRequest(
                 new global::Serper.BaseSearchRequest
                 {

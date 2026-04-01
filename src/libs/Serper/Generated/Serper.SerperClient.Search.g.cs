@@ -189,7 +189,6 @@ namespace Serper
         public async global::System.Threading.Tasks.Task<global::Serper.SearchResponse> SearchAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Serper.SearchRequest
             {
             };

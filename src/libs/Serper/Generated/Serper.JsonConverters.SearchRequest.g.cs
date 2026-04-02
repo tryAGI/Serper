@@ -40,8 +40,8 @@ namespace Serper.JsonConverters
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
 
-            global::Serper.BaseSearchRequest? value1 = default;
-            global::Serper.SearchRequestVariant2? value2 = default;
+            global::Serper.BaseSearchRequest? @base = default;
+            global::Serper.SearchRequestVariant2? searchRequestVariant2 = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -50,7 +50,7 @@ namespace Serper.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.BaseSearchRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.BaseSearchRequest> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.BaseSearchRequest).Name}");
-                        value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        @base = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -65,7 +65,7 @@ namespace Serper.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.SearchRequestVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.SearchRequestVariant2> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.SearchRequestVariant2).Name}");
-                        value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        searchRequestVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -76,13 +76,13 @@ namespace Serper.JsonConverters
                 }
             }
 
-            if (value1 == null && value2 == null)
+            if (@base == null && searchRequestVariant2 == null)
             {
                 try
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.BaseSearchRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.BaseSearchRequest> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.BaseSearchRequest).Name}");
-                    value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    @base = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -95,7 +95,7 @@ namespace Serper.JsonConverters
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.SearchRequestVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.SearchRequestVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.SearchRequestVariant2).Name}");
-                    value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    searchRequestVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -106,9 +106,9 @@ namespace Serper.JsonConverters
             }
 
             var __value = new global::Serper.SearchRequest(
-                value1,
+                @base,
 
-                value2
+                searchRequestVariant2
                 );
 
             return __value;
@@ -123,17 +123,17 @@ namespace Serper.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsBase)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.BaseSearchRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.BaseSearchRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.BaseSearchRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Base!, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsSearchRequestVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.SearchRequestVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.SearchRequestVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.SearchRequestVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SearchRequestVariant2!, typeInfo);
             }
         }
     }

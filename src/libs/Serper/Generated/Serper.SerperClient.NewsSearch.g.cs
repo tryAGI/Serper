@@ -5,6 +5,25 @@ namespace Serper
 {
     public partial class SerperClient
     {
+
+
+        private static readonly global::Serper.EndPointSecurityRequirement s_NewsSearchSecurityRequirement0 =
+            new global::Serper.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Serper.EndPointAuthorizationRequirement[]
+                {                    new global::Serper.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "X-API-KEY",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::Serper.EndPointSecurityRequirement[] s_NewsSearchSecurityRequirements =
+            new global::Serper.EndPointSecurityRequirement[]
+            {                s_NewsSearchSecurityRequirement0,
+            };
         partial void PrepareNewsSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Serper.NewsSearchRequest request);
@@ -39,9 +58,15 @@ namespace Serper
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Serper.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_NewsSearchSecurityRequirements,
+                operationName: "NewsSearchAsync");
+
             var __pathBuilder = new global::Serper.PathBuilder(
                 path: "/news",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -51,7 +76,7 @@ namespace Serper
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

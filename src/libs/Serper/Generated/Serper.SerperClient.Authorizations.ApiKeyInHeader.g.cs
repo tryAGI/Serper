@@ -26,6 +26,7 @@ namespace Serper
             Authorizations.Add(new global::Serper.EndPointAuthorization
             {
                 Type = "ApiKey",
+                SchemeId = "ApikeyXApiKey",
                 Location = "Header",
                 Name = "X-API-KEY",
                 Value = apiKey,

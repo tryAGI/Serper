@@ -74,10 +74,10 @@ namespace Serper
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public SerperClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Serper.EndPointAuthorization>? authorizations = null,
-            global::Serper.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Serper.EndPointAuthorization>? authorizations,
+            global::Serper.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

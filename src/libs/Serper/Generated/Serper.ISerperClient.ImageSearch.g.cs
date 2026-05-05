@@ -21,6 +21,19 @@ namespace Serper
         /// Image Search<br/>
         /// Search Google Images for image results.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Serper.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Serper.AutoSDKHttpResponse<global::Serper.ImageSearchResponse>> ImageSearchAsResponseAsync(
+
+            global::Serper.ImageSearchRequest request,
+            global::Serper.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Image Search<br/>
+        /// Search Google Images for image results.
+        /// </summary>
         /// <param name="q">
         /// Search query string.<br/>
         /// Example: apple inc

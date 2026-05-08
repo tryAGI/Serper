@@ -25,6 +25,19 @@ namespace Serper
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Base))]
 #endif
         public bool IsBase => Base != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickBase(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Serper.BaseSearchRequest? value)
+        {
+            value = Base;
+            return IsBase;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -69,7 +82,7 @@ namespace Serper
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Serper.BaseSearchRequest?, TResult>? @base = null,
+            global::System.Func<global::Serper.BaseSearchRequest, TResult>? @base = null,
             bool validate = true)
         {
             if (validate)
@@ -89,7 +102,25 @@ namespace Serper
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Serper.BaseSearchRequest?>? @base = null,
+            global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsBase)
+            {
+                @base?.Invoke(Base!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
             bool validate = true)
         {
             if (validate)

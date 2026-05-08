@@ -29,6 +29,19 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickBase(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Serper.BaseSearchRequest? value)
+        {
+            value = Base;
+            return IsBase;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Serper.SearchRequestVariant2? SearchRequestVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace Serper
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchRequestVariant2))]
 #endif
         public bool IsSearchRequestVariant2 => SearchRequestVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSearchRequestVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Serper.SearchRequestVariant2? value)
+        {
+            value = SearchRequestVariant2;
+            return IsSearchRequestVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace Serper
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Serper.BaseSearchRequest?, TResult>? @base = null,
-            global::System.Func<global::Serper.SearchRequestVariant2?, TResult>? searchRequestVariant2 = null,
+            global::System.Func<global::Serper.BaseSearchRequest, TResult>? @base = null,
+            global::System.Func<global::Serper.SearchRequestVariant2, TResult>? searchRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace Serper
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Serper.BaseSearchRequest?>? @base = null,
-            global::System.Action<global::Serper.SearchRequestVariant2?>? searchRequestVariant2 = null,
+            global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
+
+            global::System.Action<global::Serper.SearchRequestVariant2>? searchRequestVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsBase)
+            {
+                @base?.Invoke(Base!);
+            }
+            else if (IsSearchRequestVariant2)
+            {
+                searchRequestVariant2?.Invoke(SearchRequestVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
+            global::System.Action<global::Serper.SearchRequestVariant2>? searchRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)

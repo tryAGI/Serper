@@ -89,6 +89,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static SearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new SearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SearchRequest(global::Serper.SearchRequestVariant2 value) => new SearchRequest((global::Serper.SearchRequestVariant2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace Serper
         {
             SearchRequestVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SearchRequest FromSearchRequestVariant2(global::Serper.SearchRequestVariant2? value) => new SearchRequest(value);
 
         /// <summary>
         /// 

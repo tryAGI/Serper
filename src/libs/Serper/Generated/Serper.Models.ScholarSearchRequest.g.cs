@@ -89,6 +89,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static ScholarSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new ScholarSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ScholarSearchRequest(global::Serper.ScholarSearchRequestVariant2 value) => new ScholarSearchRequest((global::Serper.ScholarSearchRequestVariant2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace Serper
         {
             ScholarSearchRequestVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ScholarSearchRequest FromScholarSearchRequestVariant2(global::Serper.ScholarSearchRequestVariant2? value) => new ScholarSearchRequest(value);
 
         /// <summary>
         /// 

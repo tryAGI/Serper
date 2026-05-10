@@ -59,6 +59,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static ImageSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new ImageSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object? Object =>
             Base as object 
             ;

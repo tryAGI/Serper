@@ -59,6 +59,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static NewsSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new NewsSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object? Object =>
             Base as object 
             ;

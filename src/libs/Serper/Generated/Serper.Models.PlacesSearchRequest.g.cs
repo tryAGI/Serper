@@ -59,6 +59,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static PlacesSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new PlacesSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object? Object =>
             Base as object 
             ;

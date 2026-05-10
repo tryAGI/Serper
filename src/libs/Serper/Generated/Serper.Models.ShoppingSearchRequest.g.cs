@@ -59,6 +59,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static ShoppingSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new ShoppingSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object? Object =>
             Base as object 
             ;

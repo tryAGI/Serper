@@ -59,6 +59,11 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public static VideoSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new VideoSearchRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object? Object =>
             Base as object 
             ;

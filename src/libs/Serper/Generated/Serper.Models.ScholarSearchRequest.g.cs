@@ -42,6 +42,13 @@ namespace Serper
         /// <summary>
         /// 
         /// </summary>
+        public global::Serper.BaseSearchRequest PickBase() => IsBase
+            ? Base!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Base' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Serper.ScholarSearchRequestVariant2? ScholarSearchRequestVariant2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace Serper
             value = ScholarSearchRequestVariant2;
             return IsScholarSearchRequestVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Serper.ScholarSearchRequestVariant2 PickScholarSearchRequestVariant2() => IsScholarSearchRequestVariant2
+            ? ScholarSearchRequestVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ScholarSearchRequestVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -63,5 +63,6 @@ namespace Serper
         public AutocompleteResponse()
         {
         }
+
     }
 }

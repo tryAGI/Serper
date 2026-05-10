@@ -118,5 +118,6 @@ namespace Serper
         public SearchResponse()
         {
         }
+
     }
 }

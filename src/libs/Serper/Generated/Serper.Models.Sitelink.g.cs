@@ -52,5 +52,6 @@ namespace Serper
         public Sitelink()
         {
         }
+
     }
 }

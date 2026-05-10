@@ -74,5 +74,6 @@ namespace Serper
         public PeopleAlsoAskItem()
         {
         }
+
     }
 }

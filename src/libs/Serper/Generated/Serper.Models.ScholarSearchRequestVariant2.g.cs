@@ -72,5 +72,6 @@ namespace Serper
         public ScholarSearchRequestVariant2()
         {
         }
+
     }
 }

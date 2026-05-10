@@ -85,5 +85,6 @@ namespace Serper
         public AnswerBox()
         {
         }
+
     }
 }

@@ -81,6 +81,7 @@ namespace Serper.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.BaseSearchRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.BaseSearchRequest> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.BaseSearchRequest).Name}");
                     @base = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -91,9 +92,13 @@ namespace Serper.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (@base == null && searchRequestVariant2 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Serper.SearchRequestVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Serper.SearchRequestVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Serper.SearchRequestVariant2).Name}");
                     searchRequestVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

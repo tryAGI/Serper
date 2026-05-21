@@ -140,5 +140,6 @@ namespace Serper
         public ImageResult()
         {
         }
+
     }
 }

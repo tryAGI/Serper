@@ -41,5 +41,6 @@ namespace Serper
         public AutocompleteSuggestion()
         {
         }
+
     }
 }

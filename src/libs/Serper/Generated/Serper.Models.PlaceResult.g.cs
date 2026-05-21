@@ -151,5 +151,6 @@ namespace Serper
         public PlaceResult()
         {
         }
+
     }
 }

@@ -96,5 +96,6 @@ namespace Serper
         public OrganicResult()
         {
         }
+
     }
 }

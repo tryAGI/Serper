@@ -42,5 +42,6 @@ namespace Serper
         public SearchRequestVariant2()
         {
         }
+
     }
 }

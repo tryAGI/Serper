@@ -17,3 +17,21 @@ autosdk generate openapi.yaml \
   --output Generated \
   --exclude-deprecated-operations \
   --security-scheme ApiKey:Header:X-API-KEY
+
+rm -rf ../../cli/Serper.CLI
+
+autosdk cli-project openapi.yaml \
+  --output ../../cli/Serper.CLI \
+  --sdk-project ../../libs/Serper/Serper.csproj \
+  --targetFramework net10.0 \
+  --namespace Serper \
+  --clientClassName SerperClient \
+  --package-id Serper.CLI \
+  --tool-command-name serper \
+  --user-secrets-id Serper.CLI \
+  --api-key-env-var SERPER_API_KEY \
+  --base-url-env-var SERPER_BASE_URL \
+  --cli-credential-file \
+  --cli-keep-api-group \
+  --exclude-deprecated-operations \
+  --security-scheme ApiKey:Header:X-API-KEY

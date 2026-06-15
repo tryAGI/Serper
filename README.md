@@ -19,6 +19,13 @@ using Serper;
 using var client = new SerperClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global Serper.CLI --prerelease
+serper api --help
+```
+
 <!-- EXAMPLES:START -->
 <!-- EXAMPLES:END -->
 

@@ -5,12 +5,12 @@
 namespace Serper
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ScholarSearchRequest : global::System.IEquatable<ScholarSearchRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Serper.BaseSearchRequest? Base { get; init; }
@@ -19,7 +19,7 @@ namespace Serper
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Base))]
@@ -27,7 +27,7 @@ namespace Serper
         public bool IsBase => Base != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBase(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Serper.BaseSearchRequest PickBase() => IsBase
             ? Base!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Base' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Serper.ScholarSearchRequestVariant2? ScholarSearchRequestVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Serper
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ScholarSearchRequestVariant2))]
@@ -64,7 +64,7 @@ namespace Serper
         public bool IsScholarSearchRequestVariant2 => ScholarSearchRequestVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickScholarSearchRequestVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Serper.ScholarSearchRequestVariant2 PickScholarSearchRequestVariant2() => IsScholarSearchRequestVariant2
             ? ScholarSearchRequestVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ScholarSearchRequestVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ScholarSearchRequest(global::Serper.BaseSearchRequest value) => new ScholarSearchRequest((global::Serper.BaseSearchRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Serper.BaseSearchRequest?(ScholarSearchRequest @this) => @this.Base;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ScholarSearchRequest(global::Serper.BaseSearchRequest? value)
         {
@@ -101,22 +101,22 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ScholarSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new ScholarSearchRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ScholarSearchRequest(global::Serper.ScholarSearchRequestVariant2 value) => new ScholarSearchRequest((global::Serper.ScholarSearchRequestVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Serper.ScholarSearchRequestVariant2?(ScholarSearchRequest @this) => @this.ScholarSearchRequestVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ScholarSearchRequest(global::Serper.ScholarSearchRequestVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ScholarSearchRequest FromScholarSearchRequestVariant2(global::Serper.ScholarSearchRequestVariant2? value) => new ScholarSearchRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ScholarSearchRequest(
             global::Serper.BaseSearchRequest? @base,
@@ -141,23 +141,23 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ScholarSearchRequestVariant2 as object ??
-            Base as object 
+            Base as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Base?.ToString() ??
-            ScholarSearchRequestVariant2?.ToString() 
+            ScholarSearchRequestVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Serper.BaseSearchRequest, TResult>? @base = null,
@@ -190,7 +190,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
@@ -214,7 +214,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
@@ -237,7 +237,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ScholarSearchRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Serper.BaseSearchRequest?>.Default.Equals(Base, other.Base) &&
-                global::System.Collections.Generic.EqualityComparer<global::Serper.ScholarSearchRequestVariant2?>.Default.Equals(ScholarSearchRequestVariant2, other.ScholarSearchRequestVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::Serper.ScholarSearchRequestVariant2?>.Default.Equals(ScholarSearchRequestVariant2, other.ScholarSearchRequestVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ScholarSearchRequest obj1, ScholarSearchRequest obj2)
         {
@@ -277,7 +277,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ScholarSearchRequest obj1, ScholarSearchRequest obj2)
         {
@@ -285,7 +285,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

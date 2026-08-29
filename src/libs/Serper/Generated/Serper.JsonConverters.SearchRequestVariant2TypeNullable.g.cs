@@ -20,7 +20,7 @@ namespace Serper.JsonConverters
                     {
                         return global::Serper.SearchRequestVariant2TypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

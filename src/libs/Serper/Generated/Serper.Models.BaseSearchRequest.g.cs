@@ -4,7 +4,7 @@
 namespace Serper
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BaseSearchRequest
     {

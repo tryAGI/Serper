@@ -5,12 +5,12 @@
 namespace Serper
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ImageSearchRequest : global::System.IEquatable<ImageSearchRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Serper.BaseSearchRequest? Base { get; init; }
@@ -19,7 +19,7 @@ namespace Serper
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Base))]
@@ -27,7 +27,7 @@ namespace Serper
         public bool IsBase => Base != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBase(
 #if NET6_0_OR_GREATER
@@ -40,23 +40,23 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Serper.BaseSearchRequest PickBase() => IsBase
             ? Base!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Base' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageSearchRequest(global::Serper.BaseSearchRequest value) => new ImageSearchRequest((global::Serper.BaseSearchRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Serper.BaseSearchRequest?(ImageSearchRequest @this) => @this.Base;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageSearchRequest(global::Serper.BaseSearchRequest? value)
         {
@@ -64,26 +64,26 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageSearchRequest FromBase(global::Serper.BaseSearchRequest? value) => new ImageSearchRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
-            Base as object 
+            Base as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
-            Base?.ToString() 
+            Base?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -91,7 +91,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Serper.BaseSearchRequest, TResult>? @base = null,
@@ -111,7 +111,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
@@ -129,7 +129,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Serper.BaseSearchRequest>? @base = null,
@@ -147,7 +147,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -166,17 +166,17 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ImageSearchRequest other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Serper.BaseSearchRequest?>.Default.Equals(Base, other.Base) 
+                global::System.Collections.Generic.EqualityComparer<global::Serper.BaseSearchRequest?>.Default.Equals(Base, other.Base)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ImageSearchRequest obj1, ImageSearchRequest obj2)
         {
@@ -184,7 +184,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ImageSearchRequest obj1, ImageSearchRequest obj2)
         {
@@ -192,7 +192,7 @@ namespace Serper
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

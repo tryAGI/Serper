@@ -9,39 +9,39 @@ namespace Serper
     public enum SearchRequestVariant2Type
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Images,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Maps,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         News,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Patents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Places,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scholar,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Search,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Shopping,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Videos,
     }

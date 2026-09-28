@@ -42,8 +42,8 @@ namespace Serper
         /// <summary>
         ///
         /// </summary>
-        public global::Serper.BaseSearchRequest PickBase() => IsBase
-            ? Base!
+        public global::Serper.BaseSearchRequest PickBase() => Base is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Base' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -102,9 +102,9 @@ namespace Serper
                 Validate();
             }
 
-            if (IsBase && @base != null)
+            if (Base is { } __value0 && @base != null)
             {
-                return @base(Base!);
+                return @base(__value0);
             }
 
             return default(TResult);
@@ -122,9 +122,9 @@ namespace Serper
                 Validate();
             }
 
-            if (IsBase)
+            if (Base is { } __value0)
             {
-                @base?.Invoke(Base!);
+                @base?.Invoke(__value0);
             }
         }
 
@@ -140,9 +140,9 @@ namespace Serper
                 Validate();
             }
 
-            if (IsBase)
+            if (Base is { } __value0)
             {
-                @base?.Invoke(Base!);
+                @base?.Invoke(__value0);
             }
         }
 

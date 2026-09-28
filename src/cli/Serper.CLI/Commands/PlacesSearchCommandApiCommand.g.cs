@@ -62,6 +62,8 @@ internal static partial class PlacesSearchCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"places-search", @"Places Search
@@ -111,6 +113,7 @@ Search Google Maps/Places for local businesses and points of interest.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

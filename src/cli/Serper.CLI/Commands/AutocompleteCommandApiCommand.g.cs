@@ -64,9 +64,9 @@ internal static partial class AutocompleteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"autocomplete", @"Autocomplete
+        var command = new Command(commandName ?? @"autocomplete", @"Autocomplete
 Get Google autocomplete suggestions for a partial query.");
                         command.Options.Add(Q);
                         command.Options.Add(Gl);

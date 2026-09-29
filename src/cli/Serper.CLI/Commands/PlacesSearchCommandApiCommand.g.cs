@@ -64,9 +64,9 @@ internal static partial class PlacesSearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"places-search", @"Places Search
+        var command = new Command(commandName ?? @"places-search", @"Places Search
 Search Google Maps/Places for local businesses and points of interest.");
                         command.Options.Add(Q);
                         command.Options.Add(Gl);

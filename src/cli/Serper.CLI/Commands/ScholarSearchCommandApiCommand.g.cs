@@ -47,9 +47,9 @@ internal static partial class ScholarSearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"scholar-search", @"Scholar Search
+        var command = new Command(commandName ?? @"scholar-search", @"Scholar Search
 Search Google Scholar for academic papers, articles, theses, and citations.
 Supports filtering by year range and finding papers that cite a specific work.
 ");

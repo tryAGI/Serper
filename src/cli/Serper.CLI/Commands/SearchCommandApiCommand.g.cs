@@ -47,9 +47,9 @@ internal static partial class SearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"search", @"Google Search
+        var command = new Command(commandName ?? @"search", @"Google Search
 Perform a Google web search. Returns organic results, knowledge graph, answer box,
 people also ask, and related searches.
 ");

@@ -64,9 +64,9 @@ internal static partial class VideoSearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"video-search", @"Video Search
+        var command = new Command(commandName ?? @"video-search", @"Video Search
 Search Google for video results from YouTube and other video platforms.");
                         command.Options.Add(Q);
                         command.Options.Add(Gl);

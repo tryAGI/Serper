@@ -64,9 +64,9 @@ internal static partial class PatentSearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patent-search", @"Patent Search
+        var command = new Command(commandName ?? @"patent-search", @"Patent Search
 Search Google Patents for patent documents and applications.");
                         command.Options.Add(Q);
                         command.Options.Add(Gl);

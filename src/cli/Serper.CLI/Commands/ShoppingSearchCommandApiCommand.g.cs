@@ -64,9 +64,9 @@ internal static partial class ShoppingSearchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"shopping-search", @"Shopping Search
+        var command = new Command(commandName ?? @"shopping-search", @"Shopping Search
 Search Google Shopping for product listings and prices.");
                         command.Options.Add(Q);
                         command.Options.Add(Gl);

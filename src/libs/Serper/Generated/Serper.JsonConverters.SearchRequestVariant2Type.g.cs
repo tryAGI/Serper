@@ -18,7 +18,7 @@ namespace Serper.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Serper.SearchRequestVariant2TypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::Serper.SearchRequestVariant2TypeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Serper.SearchRequestVariant2Type.");
                     }
 
                     break;
